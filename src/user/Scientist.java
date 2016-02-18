@@ -31,7 +31,7 @@ public class Scientist {
 	}
 		
 
-//更新用户信息，根据uid 更新password,sname等
+//Update user information, update password, sname, etc. based on uid.
 	public String updateUser(String key,String value){
 		return null;
 	}
