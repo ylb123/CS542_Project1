@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BioBay</title>
+<link href="default.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jquery-2.2.0.js"></script> 
+
+<script type="text/javascript"> 
+    function create() { 
+       var tab = $("<table border='1'></table>"); 
+        for (var i = 1; i <= 3; i++) { 
+            var row = $("<tr></tr>"); 
+            for (var j = 1; j <= 4; j++) {  
+                row.append($("<td>" + i + "行" + j + "列" + "</td>")); 
+            } 
+            tab.append(row); 
+
+        } 
+        $("#div").append(tab); 
+    } 
+</script>
+
+</head>
+<body>
+  <div style="height:80px;background-color:#000;text-align:center">
+  <h style="color:#FFF;font-size:50px">BioBay</h>
+  </div>
+  <div id="menu">
+  <ul>
+	<li class="current_page_item"><a href="#">Home</a></li>
+	<li><a href="href/Our reagent.html">Our reagent</a></li>
+  </ul>
+  </div>
+
+<div id="chooseAttr">
+    <ul>
+      <li>   
+      <select name="choose" id="choose" style="font-size:18px">   
+      <option value="1">lab name</option>   
+      <option value="2">reagent name</option>   
+      <option value="3">average score(greater)</option>             
+      </select>
+      <li>
+      <li>
+      <input typr="text" name="attritube">
+      </li>
+      <li>  
+    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:20px"/>
+      </li>
+    </ul>
+</div>   
+  
+<div id="div"></div>
+</body>
+</html>
