@@ -7,7 +7,7 @@ body {
 
 /** HEADER **/
 #header-nav {
-  background-color: #e0e0e0;
+  background-color: #e7e7e7;
   border-radius: 0;
   border: 0;
 }
@@ -19,7 +19,7 @@ body {
 .navbar-brand h1 { /* Restaurant name */
   font-family: 'Lora', serif;
   color: #00ffff;
-  font-size: 2em;
+  font-size: 4em;
   font-weight: bold;
   text-shadow: 1px 1px 1px #222;
   margin-top: 0;
@@ -30,29 +30,26 @@ body {
   text-decoration: none;
 }
 #nav-list {
-  margin-top: 10px;
+  margin-top: 5px;
+  font-size: 15px;
 }
 #nav-list a {
   color: #000000;
   text-align: center;
 }
 #nav-list a:hover {
-  background: #E7E7E7;
+  background: #ffffff;
 }
+
 /* END HEADER */
 
 /* Menu */
 
 #menu {
-	height: 65px;
-	margin: 0 auto;
-	background-color:#000000;
-	color:#FFFFFF;
-}
-
-#menu ul {
-	margin: 0;
-	padding: 7px 0 0 0;
+	height: 50px;
+	margin: 10px 0 0 0;
+	background-color: #e7e7e7;
+	color: #000000;
 }
 
 #menu li {
@@ -60,12 +57,19 @@ body {
 }
 
 #menu a {
-	padding-right: 25px;
 	text-decoration: none;
-	letter-spacing: -1px;
-	font-size:20px;
-	font-weight: bold;
-	color:#FFFFFF;
+	font-size: 18px;
+	color: #000000;
+}
+
+#menu a:hover {
+  background: #ffffff;
+}
+
+#description {
+  display: inline;
+  color: #ff8000;
+  font-size: 20px;
 }
 
 #chooseAttr{
@@ -79,10 +83,10 @@ body {
 }
 
 #chooseAttr li {
-	display: inline;
 	padding-right: 25px;
 }
 
 #chooseAttr input{
 	height:18px;
 }
+
