@@ -75,6 +75,7 @@ body {
 #chooseAttr{
 	padding-top:20px;
 	padding-bottom:20px;
+	float:left;
 }
 
 #chooseAttr ul {
@@ -90,3 +91,6 @@ body {
 	height:18px;
 }
 
+#div-right{
+	float:left;
+}
