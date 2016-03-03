@@ -10,13 +10,8 @@ import conf.Conf;
 public class Scientist {
 	
 			 
-<<<<<<< HEAD
 	static String sqlSelectScientist="select uid,password,name,title,lid from Scientist where uid=? and password =?";
 	static String sqlsearchLab="select lid,name,affiliation,bbpoint from Lab where name=?";
-=======
-	static String sqlSelectScientist="select uid,name from Scientist where uid=? and password =?";
-	
->>>>>>> origin/master
 	/*
 	static String sqlInsertScientist="insert into Scientist(uid,password,sname ) values(?,?,?)";
 	static String sqlDeleteScientist="delete from scientist where uid =?";
