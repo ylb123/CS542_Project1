@@ -12,6 +12,26 @@
 
     <script type="text/javascript"> 
       function create() { 
+<<<<<<< HEAD
+        var xmlhttp;
+		if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+            document.getElementById("first").innerHTML=xmlhttp.responseText;
+          }
+        }
+        xmlhttp.open("GET","search.jsp?choo="+$("#choose").val()+"&attr="+$("#attribute").val(),true);
+        xmlhttp.send(); 
+=======
         var tab = $("<table border='1'></table>"); 
         for (var i = 1; i <= 3; i++) { 
             var row = $("<tr></tr>"); 
@@ -22,6 +42,7 @@
 
         } 
         $("#div-right").append(tab); 
+>>>>>>> origin/master
       } 
     </script>
 
@@ -78,14 +99,20 @@
       </select>
       <li>
       <li>
-      <input typr="text" name="attritube">
+      <input type="text" id="attribute" style="height:22px">
       </li>
       <li>  
     <input type="button" onclick="create()" value="search" style="margin-top:10px;height:22px"/>
       </li>
     </ul>
   </div>   
+<<<<<<< HEAD
+  <div id="div-right">
+      <div id="first"></div>
+  </div>
+=======
   <div id="div-right"></div>
+>>>>>>> origin/master
 </div>
 </body>
 </html>
