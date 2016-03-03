@@ -12,6 +12,7 @@
 
     <script type="text/javascript"> 
       function create() { 
+<<<<<<< HEAD
         var xmlhttp;
 		if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -30,6 +31,18 @@
         }
         xmlhttp.open("GET","search.jsp?choo="+$("#choose").val()+"&attr="+$("#attribute").val(),true);
         xmlhttp.send(); 
+=======
+        var tab = $("<table border='1'></table>"); 
+        for (var i = 1; i <= 3; i++) { 
+            var row = $("<tr></tr>"); 
+            for (var j = 1; j <= 4; j++) {  
+                row.append($("<td>" + i + "行" + j + "列" + "</td>")); 
+            } 
+            tab.append(row); 
+
+        } 
+        $("#div-right").append(tab); 
+>>>>>>> origin/master
       } 
     </script>
 
@@ -93,9 +106,13 @@
       </li>
     </ul>
   </div>   
+<<<<<<< HEAD
   <div id="div-right">
       <div id="first"></div>
   </div>
+=======
+  <div id="div-right"></div>
+>>>>>>> origin/master
 </div>
 </body>
 </html>
