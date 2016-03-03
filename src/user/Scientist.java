@@ -10,7 +10,7 @@ import conf.Conf;
 public class Scientist {
 	
 			 
-	static String sqlSelectScientist="select uid,name from BioUser where uid=? and password =?";
+	static String sqlSelectScientist="select uid,name from Scientist where uid=? and password =?";
 	
 	/*
 	static String sqlInsertScientist="insert into Scientist(uid,password,sname ) values(?,?,?)";
@@ -21,17 +21,21 @@ public class Scientist {
 	static String sqlsubmitComment="insert into comment(mid,name,content) values(?,?,?)";
 	
 	public String uid;
-	public String name;
-	
 	public String password;
+	public String name;
+	public String title;
+	public String lid;
 	
-	public Scientist(String uid,String password){
+	public Scientist(String uid,String password,String name,String title,String lid){
 		this.uid=uid;
 		this.password=password;
+		this.name=name;
+		this.title=title;
+		this.lid=lid;
 	}
 		
 
-//更新用户信息，根据uid 更新password,sname等
+//Update user information, update password, sname, etc. based on uid.
 	public String updateUser(String key,String value){
 		return null;
 	}
@@ -48,7 +52,8 @@ public class Scientist {
 			pStmt.setString(2, p);
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			if ( rs !=null && rs.next()) {
-				ret=new Scientist(rs.getString(1).trim(),rs.getString(2));
+				ret=new Scientist(rs.getString(1).trim(),rs.getString(2),rs.getString(3),
+						rs.getString(4),rs.getString(5));
 			}
 			rs.close();		
 		} catch (SQLException e) {

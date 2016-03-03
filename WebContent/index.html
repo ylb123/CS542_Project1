@@ -1,34 +1,116 @@
 <!DOCTYPE html>
-
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BioBay</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/default.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="jquery-2.2.0.js"></script> 
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>BioBay</title>
-  <script>
-    
-  </script>
-</head>
+    <script type="text/javascript"> 
+      function create() { 
+        var tab = $("<table border='1'></table>"); 
+        for (var i = 1; i <= 3; i++) { 
+            var row = $("<tr></tr>"); 
+            for (var j = 1; j <= 4; j++) {  
+                row.append($("<td>" + i + "行" + j + "列" + "</td>")); 
+            } 
+            tab.append(row); 
 
-<body style="text-align:center">
-<div style="position: absolute; top: 40%; left:40%">
-<h2 class ="title" style="font-size:22px">BioBay</h2>  
-<div align="center">
-    <form id="login_form" name="login" method="post" action="login.jsp" novalidate>
-    <div>
-    <label for="login_username" style="font-size:18px"><span class="required-mark">*</span>username</label>
-    <input type="text" id="login_username" class="log-input" name="userid">
-    </div>
+        } 
+        $("#div").append(tab); 
+      } 
+    </script>
+
+  </head>
+
+<body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="main.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img" alt="Logo image"></div>
+          </a>
+
+          <div class="navbar-brand">
+            <a href="main.html"><h1>BioBay</h1></a>
+          </div>
+        </div>
+        
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+             <li id="phone"><a href="tel:000-000-0000">000-000-0000</a></li>
+             <li class="login"><a href="#"> Log In</a></li>
+             <li class="account"><a href="#"> My Account</a></li>
+             <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
+           </ul><!-- #nav-list -->
+        </div><!-- .collapse .navbar-collapse -->
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+          <ul id="menu" class="nav navbar-nav navbar-right">
+            <li><a href="href/researcharea.html">Research Area</a></li>
+            <li><a href="href/producttype.html">Product Type</a></li>
+            <li><a href="href/mission.html">Our Mission</a></li>
+            <li><a href="href/resources.html">Resources</a></li>
+            <li><a href="href/about.html">About</a></li>
+            <li><a href="href/blog.html">Blog</a></li>
+          </ul>
+        </div>
+      </div><!-- .container -->
+    </nav><!-- #header-nav -->
+</header>
+
+<div id="main-content" class="container">
+   <div class="jumbotron">
+   <img src="images/bio1.jpg" alt="Picture of biologists">
+   <div id="description" class="navbar-right">
+     <p>Join our network today!</p>
+   </div>
+
+
+   <div style="position: absolute; top: 40%; left:70%">  
+   <div align="center">
+      <form id="login_form" name="login" method="post" action="login.jsp" novalidate>
+      <div>
+      <label for="login_username" style="font-size:18px">username</label>
+      <input type="text" id="login_username" class="log-input" name="userid">
+      </div>
+    <p></p>
+      <div>
+      <label for="login_password" style="font-size:18px">password</label>
+      <input type="password" id="login_password" class="log-input" name="password">
+      </div>
+    <p></p>
+      <input type="submit" value="Submit" />
+      </form>
+      </div>
+   </div>
      
-    <p></p>
-    <div>
-    <label for="login_password" style="font-size:18px"><span class="required-mark">*</span>password</label>
-    <input type="password" id="login_password" class="log-input" name="password">
-    </div>
-    <p></p>
-    <input type="submit" value="Submit" />
-    </form>
+   
+   </div>
 </div>
-</div>
+
+<div id="chooseAttr">
+    <ul>
+      <li>   
+      <select name="choose" id="choose" style="font-size:18px">   
+      <option value="1">lab name</option>   
+      <option value="2">reagent name</option>   
+      <option value="3">average score(greater)</option>             
+      </select>
+      <li>
+      <li>
+      <input typr="text" name="attritube">
+      </li>
+      <li>  
+    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:20px"/>
+      </li>
+    </ul>
+</div>   
+  
+<div id="div"></div>
 </body>
 </html>
