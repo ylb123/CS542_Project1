@@ -12,16 +12,24 @@
 
     <script type="text/javascript"> 
       function create() { 
-        var tab = $("<table border='1'></table>"); 
-        for (var i = 1; i <= 3; i++) { 
-            var row = $("<tr></tr>"); 
-            for (var j = 1; j <= 4; j++) {  
-                row.append($("<td>" + i + "行" + j + "列" + "</td>")); 
-            } 
-            tab.append(row); 
-
-        } 
-        $("#div").append(tab); 
+        var xmlhttp;
+		if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+            document.getElementById("first").innerHTML=xmlhttp.responseText;
+          }
+        }
+        xmlhttp.open("GET","search.jsp?choo="+$("#choose").val()+"&attr="+$("#attribute").val(),true);
+        xmlhttp.send(); 
       } 
     </script>
 
@@ -43,7 +51,7 @@
         
         <div id="collapsable-nav" class="collapse navbar-collapse">
            <ul id="nav-list" class="nav navbar-nav navbar-right">
-             <li id="phone"><a href="tel:410-602-5008">410-602-5008</a></li>
+             <li id="phone"><a href="tel:000-000-0000">000-000-0000</a></li>
              <li class="login"><a href="#"> Log In</a></li>
              <li class="account"><a href="#"> My Account</a></li>
              <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
@@ -64,15 +72,11 @@
 </header>
 
 <div id="main-content" class="container">
-   <div class="jumbotron">
-     <img src="images/bio1.jpg" alt="Picture of biologists">
-   <div id="description" class="navbar-right">
-     <p>Join our network today!</p>
-   </div>
-   </div>
+
 </div>
 
-<div id="chooseAttr">
+<div>
+  <div id="chooseAttr">
     <ul>
       <li>   
       <select name="choose" id="choose" style="font-size:18px">   
@@ -82,14 +86,16 @@
       </select>
       <li>
       <li>
-      <input typr="text" name="attritube">
+      <input type="text" id="attribute" style="height:22px">
       </li>
       <li>  
-    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:20px"/>
+    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:22px"/>
       </li>
     </ul>
-</div>   
-  
-<div id="div"></div>
+  </div>   
+  <div id="div-right">
+      <div id="first"></div>
+  </div>
+</div>
 </body>
 </html>

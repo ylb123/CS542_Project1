@@ -10,8 +10,8 @@ import conf.Conf;
 public class Scientist {
 	
 			 
-	static String sqlSelectScientist="select uid,name from BioUser where uid=? and password =?";
-	
+	static String sqlSelectScientist="select uid,password,name,title,lid from Scientist where uid=? and password =?";
+	static String sqlsearchLab="select lid,name,affiliation,bbpoint from Lab where name=?";
 	/*
 	static String sqlInsertScientist="insert into Scientist(uid,password,sname ) values(?,?,?)";
 	static String sqlDeleteScientist="delete from scientist where uid =?";
@@ -21,13 +21,17 @@ public class Scientist {
 	static String sqlsubmitComment="insert into comment(mid,name,content) values(?,?,?)";
 	
 	public String uid;
-	public String name;
-	
 	public String password;
+	public String name;
+	public String title;
+	public String lid;
 	
-	public Scientist(String uid,String password){
+	public Scientist(String uid,String password,String name,String title,String lid){
 		this.uid=uid;
 		this.password=password;
+		this.name=name;
+		this.title=title;
+		this.lid=lid;
 	}
 		
 
@@ -48,7 +52,8 @@ public class Scientist {
 			pStmt.setString(2, p);
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			if ( rs !=null && rs.next()) {
-				ret=new Scientist(rs.getString(1).trim(),rs.getString(2));
+				ret=new Scientist(rs.getString(1).trim(),rs.getString(2),rs.getString(3),
+						rs.getString(4),rs.getString(5));
 			}
 			rs.close();		
 		} catch (SQLException e) {
@@ -57,6 +62,26 @@ public class Scientist {
 		return ret;	
 	}	
 	
+	public Lab searchLab(String name){
+		Lab lab=null;
+		Database4Sql dSql = null;
+		PreparedStatement pStmt = null;
+		String sql=sqlsearchLab;
+		try {
+			dSql=new Database4Sql();
+			pStmt=dSql.getPreparedStatement(sql);
+			pStmt.setString(1, name);
+			ResultSet rs=dSql.queryPrepare(pStmt);
+			if ( rs !=null && rs.next()) {
+				lab=new Lab(rs.getString(1).trim(),rs.getString(2),rs.getString(3),
+						Integer.valueOf(rs.getString(4)));
+			}
+			rs.close();		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return lab;	
+	}
 	
 	
 	public Comment[] viewComment(String mid){
