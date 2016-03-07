@@ -38,12 +38,8 @@
 <body>
   <header>
     <nav id="header-nav" class="navbar navbar-default">
-      <div class="container">
         <div class="navbar-header">
-          <a href="main.html" class="pull-left visible-md visible-lg">
-            <div id="logo-img" alt="Logo image"></div>
-          </a>
-
+          <a href="main.html" class="pull-left visible-md visible-lg"></a>
           <div class="navbar-brand">
             <a href="main.html"><h1>BioBay</h1></a>
           </div>
@@ -51,32 +47,53 @@
         
         <div id="collapsable-nav" class="collapse navbar-collapse">
            <ul id="nav-list" class="nav navbar-nav navbar-right">
-             <li id="phone"><a href="tel:000-000-0000">000-000-0000</a></li>
+             <li id="phone"><a href="tel:800-602-5008">800-602-5008</a></li>
              <li class="login"><a href="#"> Log In</a></li>
              <li class="account"><a href="#"> My Account</a></li>
              <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
            </ul><!-- #nav-list -->
         </div><!-- .collapse .navbar-collapse -->
         <div id="collapsable-nav" class="collapse navbar-collapse">
-          <ul id="menu" class="nav navbar-nav navbar-right">
-            <li><a href="href/researcharea.html">Research Area</a></li>
-            <li><a href="href/producttype.html">Product Type</a></li>
-            <li><a href="href/mission.html">Our Mission</a></li>
-            <li><a href="href/resources.html">Resources</a></li>
-            <li><a href="href/about.html">About</a></li>
-            <li><a href="href/blog.html">Blog</a></li>
+          <ul id="info" class="nav navbar-nav navbar-right">
+            <li><a href="main.html">Home</a></li>
+            <li><a href="href/labs.html">Labs</a></li>
+            <li><a href="href/area.html">Research Area</a></li>
+            <li><a href="href/type.html">Reagent Type</a></li>
+            <li><a href="href/about.html">About BioBay</a></li>
+            <li><a href="href/contact.html">Contact Us</a></li>
           </ul>
         </div>
-      </div><!-- .container -->
     </nav><!-- #header-nav -->
 </header>
 
 <div id="main-content" class="container">
-
+   <div class="row">
+     <div class="col-md-7">
+       <img src="images/bio1.jpg" alt="Picture of biologists">
+     </div>
+     <div id="login" class="col-md-5">
+        <p>Log In</p>
+        <form id="login_form" name="login" method="post" action="login.jsp" novalidate>
+          <div>
+            <label for="login_username" style="font-size:18px"><span class="required-mark">*</span>username</label>
+            <input type="text" id="login_username" class="log-input" name="userid">
+          </div>
+     
+          <p></p>
+          <div>
+            <label for="login_password" style="font-size:18px"><span class="required-mark">*</span>password</label>
+            <input type="password" id="login_password" class="log-input" name="password">
+          </div>
+          <p></p>
+          <input type="submit" value="Submit">
+          <p><a href="href/register.html">Not a member? Join our network today!</a></p>
+        </form>
+      </div>
+   </div>
 </div>
 
-<div>
-  <div id="chooseAttr">
+<div id="search">
+  <p>Search Reagents</p>
     <ul>
       <li>   
       <select name="choose" id="choose" style="font-size:18px">   
@@ -97,5 +114,29 @@
       <div id="first"></div>
   </div>
 </div>
+
+<footer class="panel-footer">
+      <div class="row">
+        <section id="hours" class="col-sm-4">
+          <span>Contact Hours:</span><br>
+          Monday-Thursday: 9am - 5pm<br>
+          Sat: 9am - 12pm<br>
+          Sunday Closed
+          <hr class="visible-xs">
+        </section>
+        <section id="address" class="col-sm-4">
+          <span>Address:</span><br>
+          55 North Lake Ave<br>
+          Worcester, MA 01605
+          <p>* </p>
+          <hr class="visible-xs">
+        </section>
+        <section id="testimonials" class="col-sm-4">
+          <p>"Join in our network today and get extra bbpoints for reagent!"</p>
+          <p>""</p>
+        </section>
+      </div>
+      <div class="text-center">&copy; 2016 All Rights Reserved. BioBay is a registered trademark of BioBay, Inc.</div>
+  </footer>
 </body>
 </html>
