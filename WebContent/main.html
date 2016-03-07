@@ -71,40 +71,30 @@
      <div class="col-md-7">
        <img src="images/bio1.jpg" alt="Picture of biologists">
      </div>
-     <div id="login" class="col-md-5">
-        <p>Log In</p>
-        <form id="login_form" name="login" method="post" action="login.jsp" novalidate>
-          <div>
-            <label for="login_username" style="font-size:18px"><span class="required-mark">*</span>username</label>
-            <input type="text" id="login_username" class="log-input" name="userid">
-          </div>
-     
-          <p></p>
-          <div>
-            <label for="login_password" style="font-size:18px"><span class="required-mark">*</span>password</label>
-            <input type="password" id="login_password" class="log-input" name="password">
-          </div>
-          <p></p>
-          <input type="submit" value="Submit">
-          <p><a href="href/register.html">Not a member? Join our network today!</a></p>
-        </form>
+     <div id="search" class="col-md-5">
+        <p>Search Reagents</p>
+       <div id="chooseAttr">
+    <ul>
+      <li>   
+      <select name="choose" id="choose" style="font-size:18px">   
+      <option value="1">lab name</option>   
+      <option value="2">reagent name</option>   
+      <option value="3">average score(greater)</option>             
+      </select>
+      <li>
+      <li>
+      <input type="text" id="attribute" style="height:22px">
+      </li>
+      <li>  
+    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:22px"/>
+      </li>
+    </ul>
+  </div>   
+  <div id="div-right">
+      <div id="first"></div>
+  </div>
       </div>
    </div>
-</div>
-
-<div id="search">
-  <p>Search Reagents</p>
-    <form>
-      <select name="choose" id="choose" style="font-size:18px">   
-        <option value="1">lab name</option>   
-        <option value="2">reagent name</option>   
-        <option value="3">average score(greater)</option>             
-      </select>
-      <input type="text" id="attribute" style="height:22px">
-      <input type="button" onclick="create()" value="search" style="margin-top:10px;height:22px"/>
-      <div id="div-right">
-        <div id="first"></div>
-   </form>
 </div>
 
 <footer class="panel-footer">
