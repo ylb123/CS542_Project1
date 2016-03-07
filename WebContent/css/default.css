@@ -70,6 +70,7 @@ body {
   width: 600px;
   height: 400px;
 }
+
 #login form {
   display: inline;
   color: #000000;
@@ -83,7 +84,7 @@ body {
 }
 
 #search, #choose {
-  padding: 20px 20px 20px 50px;
+  padding: 20px 0px 20px 0px;
 }
 #attribute {
 	margin: 20px;
