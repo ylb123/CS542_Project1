@@ -94,25 +94,17 @@
 
 <div id="search">
   <p>Search Reagents</p>
-    <ul>
-      <li>   
+    <form>
       <select name="choose" id="choose" style="font-size:18px">   
-      <option value="1">lab name</option>   
-      <option value="2">reagent name</option>   
-      <option value="3">average score(greater)</option>             
+        <option value="1">lab name</option>   
+        <option value="2">reagent name</option>   
+        <option value="3">average score(greater)</option>             
       </select>
-      <li>
-      <li>
       <input type="text" id="attribute" style="height:22px">
-      </li>
-      <li>  
-    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:22px"/>
-      </li>
-    </ul>
-  </div>   
-  <div id="div-right">
-      <div id="first"></div>
-  </div>
+      <input type="button" onclick="create()" value="search" style="margin-top:10px;height:22px"/>
+      <div id="div-right">
+        <div id="first"></div>
+   </form>
 </div>
 
 <footer class="panel-footer">
@@ -131,7 +123,7 @@
           <p>* </p>
           <hr class="visible-xs">
         </section>
-        <section id="testimonials" class="col-sm-4">
+        <section id="advertisement" class="col-sm-4">
           <p>"Join in our network today and get extra bbpoints for reagent!"</p>
           <p>""</p>
         </section>
