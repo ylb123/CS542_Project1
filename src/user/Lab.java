@@ -1,12 +1,12 @@
 package user;
 
 public class Lab {
-      int lid;
-      String lname;
-      String affiliation;
-      String address;
-      String researchArea;
-      double bbpointBalance;
+      private int lid;
+      private String lname;
+      private String affiliation;
+      private String address;
+      private String researchArea;
+      private double bbpointBalance;
       
 	  public Lab(int lid, String lname, String affiliation, String address, String researchArea, double bbpointBalance) {
 	
