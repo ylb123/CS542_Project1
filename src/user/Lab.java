@@ -1,33 +1,45 @@
 package user;
 
 public class Lab {
-      String lid;
-      String name;
+      int lid;
+      String lname;
       String affiliation;
-      int bbpoint;
+      String address;
+      String researchArea;
+      double bbpointBalance;
       
-	  public Lab(String lid, String name, String affiliation, int bbpoint) {
+	  public Lab(int lid, String lname, String affiliation, String address, String researchArea, double bbpointBalance) {
 	
 		this.lid = lid;
-		this.name = name;
+		this.lname = lname;
 		this.affiliation = affiliation;
-		this.bbpoint = bbpoint;
+		this.address = address;
+		this.researchArea = researchArea;
+		this.bbpointBalace = bbpointBalance;
 	 }
 
-	public String getLid() {
+	public int getLid() {
 		return lid;
 	}
 
-	public String getName() {
-		return name;
+	public String getLname() {
+		return lname;
 	}
 
 	public String getAffiliation() {
 		return affiliation;
 	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public String getRearchArea() {
+		return researchArea;
+	}
 
-	public int getBbpoint() {
-		return bbpoint;
+	public int getBbpointBalance() {
+		return bbpointBalance;
 	}
 	  
       
