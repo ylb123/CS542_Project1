@@ -167,7 +167,7 @@ public class Scientist {
 	}
 	
 	
-	public Comment[] viewComment(String mid){
+	/*public Comment[] viewComment(String mid){
 		Comment ret[]=new Comment[50];
 		Database4Sql dSql = null;
 		PreparedStatement pStmt = null;
@@ -188,7 +188,7 @@ public class Scientist {
 			e.printStackTrace();
 		}
 		return ret;	
-	}	
+	}*/	
 	public void submitComment(String mid,String name,String content)
 	{
 	  Database4Sql dSql = null;
