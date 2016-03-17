@@ -9,8 +9,8 @@
    <%}
    else if(choose==2){%>
 	   <jsp:forward page="searchReagent.jsp"/>
-   <%}   
+   <%} 
    else{%>
-	   <jsp:forward page="searchAverageScore.jsp"/>
+	   <jsp:forward page="searchReagent2.jsp"/>  
    <%}
 %>

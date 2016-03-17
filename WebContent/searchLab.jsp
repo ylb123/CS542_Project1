@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="conf.Conf" %>
 <%@ page import="user.Lab" %>
 <%@ page import="user.Scientist" %>
@@ -13,8 +12,9 @@
    }
    System.out.println(name);
    Lab lab=scientist.searchLab(name);
-   out.println("Lab id:"+lab.getLid()+"<br/>"+
-               "Name:"+lab.getName()+"<br/>"+
-		       "Affiliation:"+lab.getAffiliation());
-   
+   //out.println("Lab id:"+lab.getLid()+"<br/>"+
+   //            "Name:"+lab.getName()+"<br/>"+
+   //	         "Affiliation:"+lab.getAffiliation());
+   String info=String.format("{\"lid\":\"%s\",\"name\":\"%s\",\"affiliation\":\"%s\"}",lab.getLid(),lab.getName(),lab.getAffiliation()); 
+   out.print(info);
 %>
