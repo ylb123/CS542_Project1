@@ -25,7 +25,7 @@ public class Database4Sql {
 		}		
 	 }
 	 
-	 public ResultSet querySql(String sql){
+	 /*public ResultSet querySql(String sql){
 		 Statement stmt;				 
 		 try {
 			stmt = connection.createStatement();
@@ -47,7 +47,7 @@ public class Database4Sql {
 				e.printStackTrace();
 				return false;
 			}
-	}
+	}*/
 	
 	public PreparedStatement getPreparedStatement(String sql) throws SQLException{
 		return connection.prepareStatement(sql);

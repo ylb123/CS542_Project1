@@ -12,7 +12,6 @@ if(uid==null || pwd==null){
 }
 Scientist scientist =Scientist.getUser(uid,pwd);
 
-
 session.setAttribute("user", scientist);
 
 if(scientist!=null){
