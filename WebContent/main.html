@@ -9,8 +9,17 @@
     <link href="css/default.css" rel="stylesheet" type="text/css" media="screen" />
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="jquery-2.2.0.js"></script> 
-
     <script type="text/javascript"> 
+      function init()
+      {
+    	  var ch=$("#choose").val();
+    	  if(ch=="1")
+    		create();
+    	  else if(ch==2)
+    		create2();
+    	  else
+    		create3();
+      }
       function create() { 
         var xmlhttp;
 		if (window.XMLHttpRequest)
@@ -25,12 +34,62 @@
         {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
           {
-            document.getElementById("first").innerHTML=xmlhttp.responseText;
+        	var txt = xmlhttp.responseText;
+        	//var txt2='{"lid":"001","name":"WPIBiology","affiliation":"WPI"}';
+        	var obj=eval("("+txt+")");
+        	//console.log(obj);
+        	document.getElementById("div-right").innerHTML=obj.lid+"<br/>"
+        	                                           +obj.name+"<br/>"
+        	                                           +obj.affiliation;
           }
         }
-        xmlhttp.open("GET","search.jsp?choo="+$("#choose").val()+"&attr="+$("#attribute").val(),true);
+        xmlhttp.open("GET","search.jsp?choo=1"+"&attr="+$("#attribute").val(),true);
         xmlhttp.send(); 
       } 
+      function create2() { 
+        var xmlhttp;
+  		if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+           xmlhttp=new XMLHttpRequest();
+          }
+          else
+          {// code for IE6, IE5
+           xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+          	  var txt = xmlhttp.responseText;
+          	  document.getElementById("div-right").innerHTML=txt;
+          	  document.getElementById("h").style.visibility="visible";
+            }
+          }
+          xmlhttp.open("GET","search.jsp?choo=2"+"&attr="+$("#attribute").val(),true);
+          xmlhttp.send(); 
+        } 
+      function create3() { 
+          var xmlhttp;
+    		if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+             xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+              {
+            	  var txt = xmlhttp.responseText;
+            	  document.getElementById("div-right").innerHTML=txt;
+            	  document.getElementById("h").style.visibility="visible";
+              }
+            }
+            xmlhttp.open("GET","search.jsp?choo=3"+"&attr="+$("#attribute").val(),true);
+            xmlhttp.send(); 
+          } 
     </script>
 
   </head>
@@ -38,8 +97,12 @@
 <body>
   <header>
     <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
         <div class="navbar-header">
-          <a href="main.html" class="pull-left visible-md visible-lg"></a>
+          <a href="main.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img" alt="Logo image"></div>
+          </a>
+
           <div class="navbar-brand">
             <a href="main.html"><h1>BioBay</h1></a>
           </div>
@@ -47,38 +110,37 @@
         
         <div id="collapsable-nav" class="collapse navbar-collapse">
            <ul id="nav-list" class="nav navbar-nav navbar-right">
-             <li id="phone"><a href="tel:800-602-5008">800-602-5008</a></li>
+             <li id="phone"><a href="tel:000-000-0000">000-000-0000</a></li>
              <li class="login"><a href="#"> Log In</a></li>
              <li class="account"><a href="#"> My Account</a></li>
              <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
            </ul><!-- #nav-list -->
         </div><!-- .collapse .navbar-collapse -->
         <div id="collapsable-nav" class="collapse navbar-collapse">
-          <ul id="info" class="nav navbar-nav navbar-right">
+          <ul id="menu" class="nav navbar-nav navbar-right">
             <li><a href="main.html">Home</a></li>
-            <li><a href="href/labs.html">Labs</a></li>
-            <li><a href="href/area.html">Research Area</a></li>
-            <li><a href="href/type.html">Reagent Type</a></li>
-            <li><a href="href/about.html">About BioBay</a></li>
-            <li><a href="href/contact.html">Contact Us</a></li>
+            <li><a href="profile.jsp">Profile</a></li>
+            <li><a href="href/mission.html">Our Mission</a></li>
+            <li><a href="href/resources.html">Resources</a></li>
+            <li><a href="href/about.html">About</a></li>
+            <li><a href="href/blog.html">Blog</a></li>
           </ul>
         </div>
+      </div><!-- .container -->
     </nav><!-- #header-nav -->
 </header>
 
 <div id="main-content" class="container">
-   <div class="row">
-     <div class="col-md-7">
-       <img src="images/bio1.jpg" alt="Picture of biologists">
-     </div>
-     <div id="search" class="col-md-5">
-        <p>Search Reagents</p>
-       <div id="chooseAttr">
+
+</div>
+
+<div>
+  <div id="chooseAttr">
     <ul>
       <li>   
       <select name="choose" id="choose" style="font-size:18px">   
       <option value="1">lab name</option>   
-      <option value="2">reagent name</option>   
+      <option value="2">reagent name</option> 
       <option value="3">average score(greater)</option>             
       </select>
       <li>
@@ -86,39 +148,34 @@
       <input type="text" id="attribute" style="height:22px">
       </li>
       <li>  
-    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:22px"/>
+    <input type="button" onclick="init()" value="search" style="margin-top:10px;height:22px"/>
       </li>
     </ul>
   </div>   
-  <div id="div-right">
-      <div id="first"></div>
+  <div>
+      <div id="div-right">
+      </div>
+      <br/>
+      <div id="h" style="position: absolute;left:0px;top:300px;visibility:hidden;">  
+      <form id="request_form" name="request" method="post" action="requestReagent.jsp" novalidate>
+      <div>
+      <label for="request_name" style="font-size:18px;font-weight:normal">name</label>
+      <input type="text" id="request_name" class="request-input" name="name">
+      </div>
+      <p></p>
+      <div>
+      <label for="request_lid" style="font-size:18px;font-weight:normal">lid&nbsp&nbsp</label>
+      <input type="text" id="request_lid" class="request-input" name="lid">
+      </div>
+      <p></p>
+      <div>
+      <label for="request_quantity" style="font-size:18px;font-weight:normal">quantity</label>
+      <input type="text" id="request_quantity" class="request-input" name="quantity">
+      </div>
+      <input type="submit" value="Submit" />
+      </form>
+      </div>
   </div>
-      </div>
-   </div>
 </div>
-
-<footer class="panel-footer">
-      <div class="row">
-        <section id="hours" class="col-sm-4">
-          <span>Contact Hours:</span><br>
-          Monday-Thursday: 9am - 5pm<br>
-          Sat: 9am - 12pm<br>
-          Sunday Closed
-          <hr class="visible-xs">
-        </section>
-        <section id="address" class="col-sm-4">
-          <span>Address:</span><br>
-          55 North Lake Ave<br>
-          Worcester, MA 01605
-          <p>* </p>
-          <hr class="visible-xs">
-        </section>
-        <section id="advertisement" class="col-sm-4">
-          <p>"Join in our network today and get extra bbpoints for reagent!"</p>
-          <p>""</p>
-        </section>
-      </div>
-      <div class="text-center">&copy; 2016 All Rights Reserved. BioBay is a registered trademark of BioBay, Inc.</div>
-  </footer>
 </body>
 </html>
