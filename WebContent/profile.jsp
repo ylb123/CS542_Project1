@@ -62,7 +62,10 @@ String[] s=scientist.searchProfile();
 <div>   
   <div id="div-profile">
    <ul>
+<<<<<<< HEAD
         <img src="<%=s[5]%>"/ style="height:90px;width:120px">
+=======
+>>>>>>> origin/master
         <li>id:&nbsp<%=s[0]%></li>
         <li>name:&nbsp<%=s[1]%></li>
         <li>title:&nbsp<%=s[2]%></li>

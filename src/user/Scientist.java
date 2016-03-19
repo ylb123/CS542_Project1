@@ -13,6 +13,7 @@ public class Scientist {
 			 
 	static String sqlSelectScientist="select uid,password,name,title,lid from Scientist where uid=? and password =?";
 	static String sqlsearchLab="select lid,name,affiliation,bbpoint from Lab where name=?";
+<<<<<<< HEAD
 	static String sqlsearchProfile="select uid,s.name,title,l.name,bbpoint,image from Scientist s,Lab l "+
 			                                                          "where ?=l.lid";
 	static String sqlsearchReagent="select name,lid,source,type,expDate,scoreNum,averageScore,sqty,askp,image "
@@ -26,6 +27,14 @@ public class Scientist {
 	static String sqlsearchQuantity="select sqty from Reagent where name=? and lid=?";
 	
 	
+=======
+	static String sqlsearchProfile="select uid,s.name,title,l.name,bbpoint from Scientist s,Lab l "+
+			                                                          "where s.lid=l.lid";
+	static String sqlsearchReagent="select name,lid,source,type,expDate,scoreNum,averageScore,sqty,askp "
+			                                           +"from Reagent where name=?";
+	static String sqlsearchReagent2="select name,lid,source,type,expDate,scoreNum,averageScore,sqty,askp "
+            +"from Reagent where averageScore>?";
+>>>>>>> origin/master
 	/*
 	static String sqlInsertScientist="insert into Scientist(uid,password,sname ) values(?,?,?)";
 	static String sqlDeleteScientist="delete from scientist where uid =?";
@@ -87,7 +96,11 @@ public class Scientist {
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			if ( rs !=null && rs.next()) {
 				lab=new Lab(rs.getString(1).trim(),rs.getString(2),rs.getString(3),
+<<<<<<< HEAD
 						rs.getInt(4));
+=======
+						Integer.valueOf(rs.getString(4)));
+>>>>>>> origin/master
 			}
 			rs.close();		
 		} catch (SQLException e) {
@@ -100,11 +113,18 @@ public class Scientist {
 		Database4Sql dSql = null;
 		PreparedStatement pStmt = null;
 		String sql=sqlsearchProfile;
+<<<<<<< HEAD
 		String[] s=new String[6];
 		try {
 			dSql=new Database4Sql();
 			pStmt=dSql.getPreparedStatement(sql);
 			pStmt.setString(1, this.lid);
+=======
+		String[] s=new String[5];
+		try {
+			dSql=new Database4Sql();
+			pStmt=dSql.getPreparedStatement(sql);
+>>>>>>> origin/master
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			if ( rs !=null && rs.next()) {
 				s[0]=rs.getString(1).trim();
@@ -112,7 +132,10 @@ public class Scientist {
 				s[2]=rs.getString(3);
 				s[3]=rs.getString(4);
 				s[4]=rs.getString(5);
+<<<<<<< HEAD
 				s[5]=rs.getString(6);
+=======
+>>>>>>> origin/master
 			}
 			rs.close();		
 		} catch (SQLException e) {
@@ -134,10 +157,17 @@ public class Scientist {
 			pStmt.setString(1, name);
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			while( rs !=null && rs.next()) {
+<<<<<<< HEAD
 				reagent=new Reagent(rs.getString(1).trim(),rs.getString(2)
 						,rs.getString(3),rs.getString(4),rs.getString(5)
 						,rs.getInt(6),rs.getDouble(7)
 						,rs.getDouble(9),rs.getString(10));
+=======
+				reagent=new Reagent(rs.getString(1).trim(),Integer.valueOf(rs.getString(2))
+						,rs.getString(3),rs.getString(4),rs.getString(5)
+						,Integer.valueOf(rs.getString(6)),Double.valueOf(rs.getString(7))
+						,Integer.valueOf(rs.getString(9)));
+>>>>>>> origin/master
 				ret[i]=reagent;
 				i++;
 			}
@@ -149,7 +179,11 @@ public class Scientist {
 	}
 	
 	public Reagent[] searchReagent(double score){
+<<<<<<< HEAD
 
+=======
+		System.out.println(score);
+>>>>>>> origin/master
 		Reagent[] ret=new Reagent[3];
 		Reagent reagent=null;
 		Database4Sql dSql = null;
@@ -162,10 +196,17 @@ public class Scientist {
 			pStmt.setDouble(1, score);
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			while( rs !=null && rs.next()) {
+<<<<<<< HEAD
 				reagent=new Reagent(rs.getString(1).trim(),rs.getString(2)
 						,rs.getString(3),rs.getString(4),rs.getString(5)
 						,rs.getInt(6),rs.getDouble(7)
 						,rs.getDouble(9),rs.getString(10));
+=======
+				reagent=new Reagent(rs.getString(1).trim(),Integer.valueOf(rs.getString(2))
+						,rs.getString(3),rs.getString(4),rs.getString(5)
+						,Integer.valueOf(rs.getString(6)),Double.valueOf(rs.getString(7))
+						,Integer.valueOf(rs.getString(9)));
+>>>>>>> origin/master
 				ret[i]=reagent;
 				i++;
 			}
