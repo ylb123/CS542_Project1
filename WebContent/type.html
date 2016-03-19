@@ -5,13 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BioBay</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/default.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/default.css" rel="stylesheet" type="text/css" media="screen" />
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="jquery-2.2.0.js"></script> 
 
     <script type="text/javascript"> 
-     
+      function create() { 
+        var tab = $("<table border='1'></table>"); 
+        for (var i = 1; i <= 3; i++) { 
+            var row = $("<tr></tr>"); 
+            for (var j = 1; j <= 4; j++) {  
+                row.append($("<td>" + i + "行" + j + "列" + "</td>")); 
+            } 
+            tab.append(row); 
+
+        } 
+        $("#div").append(tab); 
+      } 
     </script>
 
   </head>
@@ -20,7 +31,8 @@
   <header>
     <nav id="header-nav" class="navbar navbar-default">
         <div class="navbar-header">
-          <a href="main.html" class="pull-left visible-md visible-lg"></a>
+          <a href="main.html" class="pull-left visible-md visible-lg">
+          </a>
 
           <div class="navbar-brand">
             <a href="main.html"><h1>BioBay</h1></a>
@@ -29,14 +41,14 @@
         
         <div id="collapsable-nav" class="collapse navbar-collapse">
            <ul id="nav-list" class="nav navbar-nav navbar-right">
-             <li id="phone"><a href="tel:000-000-0000">000-000-0000</a></li>
+             <li id="phone"><a href="tel:410-602-5008">410-602-5008</a></li>
              <li class="login"><a href="#"> Log In</a></li>
              <li class="account"><a href="#"> My Account</a></li>
              <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
            </ul><!-- #nav-list -->
         </div><!-- .collapse .navbar-collapse -->
         <div id="collapsable-nav" class="collapse navbar-collapse">
-          <ul id="menu" class="nav navbar-nav navbar-right">
+          <ul id="info" class="nav navbar-nav navbar-right">
             <li><a href="main.html">Home</a></li>
             <li><a href="href/labs.html">Labs</a></li>
             <li><a href="href/area.html">Research Area</a></li>
@@ -47,32 +59,30 @@
         </div>
     </nav><!-- #header-nav -->
 </header>
-
-<div id="main-content" class="container">
- <div class="row">
-     <div class="col-md-7">
-       <img src="images/bio1.jpg" alt="Picture of biologists">
-     </div>
-     <div id="login" class="col-md-5">
-        <p>Log In</p>
-        <form id="login_form" name="login" method="post" action="login.jsp" novalidate>
-          <div>
-            <label for="login_username" style="font-size:18px"><span class="required-mark">*</span>username</label>
-            <input type="text" id="login_username" class="log-input" name="userid">
-          </div>
-          <p></p>
-          <div>
-            <label for="login_password" style="font-size:18px"><span class="required-mark">*</span>password</label>
-            <input type="password" id="login_password" class="log-input" name="password">
-          </div>
-          <p></p>
-          <input type="submit" value="Submit">
-          <p><a href="register.html">Not a member? Join our network today!</a></p>
-        </form>
-      </div>
-   </div>
-</div>
+ 
   
-<div id="div"></div>
+  <footer class="panel-footer">
+      <div class="row">
+        <section id="hours" class="col-sm-4">
+          <span>Contact Hours:</span><br>
+          Monday-Thursday: 9am - 5pm<br>
+          Sat: 9am - 12pm<br>
+          Sunday Closed
+          <hr class="visible-xs">
+        </section>
+        <section id="address" class="col-sm-4">
+          <span>Address:</span><br>
+          55 North Lake Ave<br>
+          Worcester, MA 01605
+          <p>* </p>
+          <hr class="visible-xs">
+        </section>
+        <section id="testimonials" class="col-sm-4">
+          <p>"Join in our network today and get extra bbpoints for reagent!"</p>
+          <p>""</p>
+        </section>
+      </div>
+      <div class="text-center">&copy; 2016 All Rights Reserved. BioBay is a registered trademark of BioBay, Inc.</div>
+  </footer>
 </body>
 </html>

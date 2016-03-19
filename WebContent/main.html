@@ -9,20 +9,110 @@
     <link href="css/default.css" rel="stylesheet" type="text/css" media="screen" />
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="jquery-2.2.0.js"></script> 
-
     <script type="text/javascript"> 
+      function init()
+      {
+    	  var ch=$("#choose").val();
+    	  if(ch=="1")
+    		create();
+    	  else if(ch==2)
+    		create2();
+    	  else
+    		create3();
+      }
       function create() { 
-        var tab = $("<table border='1'></table>"); 
-        for (var i = 1; i <= 3; i++) { 
-            var row = $("<tr></tr>"); 
-            for (var j = 1; j <= 4; j++) {  
-                row.append($("<td>" + i + "行" + j + "列" + "</td>")); 
-            } 
-            tab.append(row); 
-
-        } 
-        $("#div").append(tab); 
+        var xmlhttp;
+		if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+        	var txt = xmlhttp.responseText;
+        	//var txt2='{"lid":"001","name":"WPIBiology","affiliation":"WPI"}';
+        	var obj=eval("("+txt+")");
+        	//console.log(obj);
+        	document.getElementById("div-right").innerHTML=obj.lid+"<br/>"
+        	                                           +obj.name+"<br/>"
+        	                                           +obj.affiliation;
+          }
+        }
+        xmlhttp.open("GET","search.jsp?choo=1"+"&attr="+$("#attribute").val(),true);
+        xmlhttp.send(); 
       } 
+      function create2() { 
+        var xmlhttp;
+  		if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+           xmlhttp=new XMLHttpRequest();
+          }
+          else
+          {// code for IE6, IE5
+           xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+          	  var txt = xmlhttp.responseText;
+          	  document.getElementById("div-right").innerHTML=txt;
+          	  document.getElementById("h").style.visibility="visible";
+            }
+          }
+          xmlhttp.open("GET","search.jsp?choo=2"+"&attr="+$("#attribute").val(),true);
+          xmlhttp.send(); 
+        } 
+      function create3() { 
+          var xmlhttp;
+    		if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+             xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+              {
+            	  var txt = xmlhttp.responseText;
+            	  document.getElementById("div-right").innerHTML=txt;
+            	  document.getElementById("h").style.visibility="visible";
+              }
+            }
+            xmlhttp.open("GET","search.jsp?choo=3"+"&attr="+$("#attribute").val(),true);
+            xmlhttp.send(); 
+          } 
+      
+      function req() { 
+          var xmlhttp;
+    		if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+             xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+              {
+            	  var txt = xmlhttp.responseText;
+            	  document.getElementById("div-right").innerHTML=txt;
+            	  document.getElementById("h").style.visibility="visible";
+              }
+            }
+            xmlhttp.open("GET","search.jsp?choo=3"+"&attr="+$("#attribute").val(),true);
+            xmlhttp.send(); 
+          } 
     </script>
 
   </head>
@@ -43,16 +133,16 @@
         
         <div id="collapsable-nav" class="collapse navbar-collapse">
            <ul id="nav-list" class="nav navbar-nav navbar-right">
-             <li id="phone"><a href="tel:410-602-5008">410-602-5008</a></li>
-             <li class="login"><a href="#"> Log In</a></li>
+             <li id="phone"><a href="tel:000-000-0000">000-000-0000</a></li>
+             <li class="login"><a href="index.html"> Log In</a></li>
              <li class="account"><a href="#"> My Account</a></li>
              <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
            </ul><!-- #nav-list -->
         </div><!-- .collapse .navbar-collapse -->
         <div id="collapsable-nav" class="collapse navbar-collapse">
           <ul id="menu" class="nav navbar-nav navbar-right">
-            <li><a href="href/researcharea.html">Research Area</a></li>
-            <li><a href="href/producttype.html">Product Type</a></li>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="profile.jsp">Profile</a></li>
             <li><a href="href/mission.html">Our Mission</a></li>
             <li><a href="href/resources.html">Resources</a></li>
             <li><a href="href/about.html">About</a></li>
@@ -64,32 +154,51 @@
 </header>
 
 <div id="main-content" class="container">
-   <div class="jumbotron">
-     <img src="images/bio1.jpg" alt="Picture of biologists">
-   <div id="description" class="navbar-right">
-     <p>Join our network today!</p>
-   </div>
-   </div>
+
 </div>
 
-<div id="chooseAttr">
+<div>
+  <div id="chooseAttr">
     <ul>
       <li>   
       <select name="choose" id="choose" style="font-size:18px">   
       <option value="1">lab name</option>   
-      <option value="2">reagent name</option>   
+      <option value="2">reagent name</option> 
       <option value="3">average score(greater)</option>             
       </select>
       <li>
       <li>
-      <input typr="text" name="attritube">
+      <input type="text" id="attribute" style="height:22px">
       </li>
       <li>  
-    <input type="button" onclick="create()" value="search" style="margin-top:10px;height:20px"/>
+    <input type="button" onclick="init()" value="search" style="margin-top:10px;height:22px"/>
       </li>
     </ul>
-</div>   
-  
-<div id="div"></div>
+  </div>   
+  <div>
+      <div id="div-right">
+      </div>
+      <br/>
+      <div id="h" style="position: absolute;left:0px;top:300px;visibility:hidden;">  
+      <form id="request_form" name="request" method="post" action="requestReagent.jsp" novalidate>
+      <div>
+      <label for="request_name" style="font-size:18px;font-weight:normal">name</label>
+      <input type="text" id="request_name" class="request-input" name="name">
+      </div>
+      <p></p>
+      <div>
+      <label for="request_lid" style="font-size:18px;font-weight:normal">lid&nbsp&nbsp</label>
+      <input type="text" id="request_lid" class="request-input" name="lid">
+      </div>
+      <p></p>
+      <div>
+      <label for="request_quantity" style="font-size:18px;font-weight:normal">quantity</label>
+      <input type="text" id="request_quantity" class="request-input" name="quantity">
+      </div>
+      <input type="submit" value="Submit" />
+      </form>
+      </div>
+  </div>
+</div>
 </body>
 </html>

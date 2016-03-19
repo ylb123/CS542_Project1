@@ -10,17 +10,23 @@
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="jquery-2.2.0.js"></script> 
 
-    <script type="text/javascript"> 
-     
+    <script type="text/javascript">
     </script>
-
   </head>
+<%@ page import="user.Scientist" %>
+<%
+Scientist scientist =(Scientist)session.getAttribute("user");
+String[] s=scientist.searchProfile();        
+%>
 
 <body>
   <header>
     <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
         <div class="navbar-header">
-          <a href="main.html" class="pull-left visible-md visible-lg"></a>
+          <a href="main.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img" alt="Logo image"></div>
+          </a>
 
           <div class="navbar-brand">
             <a href="main.html"><h1>BioBay</h1></a>
@@ -38,41 +44,32 @@
         <div id="collapsable-nav" class="collapse navbar-collapse">
           <ul id="menu" class="nav navbar-nav navbar-right">
             <li><a href="main.html">Home</a></li>
-            <li><a href="href/labs.html">Labs</a></li>
-            <li><a href="href/area.html">Research Area</a></li>
-            <li><a href="href/type.html">Reagent Type</a></li>
-            <li><a href="href/about.html">About BioBay</a></li>
-            <li><a href="href/contact.html">Contact Us</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="href/mission.html">Our Mission</a></li>
+            <li><a href="href/resources.html">Resources</a></li>
+            <li><a href="href/about.html">About</a></li>
+            <li><a href="href/blog.html">Blog</a></li>
           </ul>
         </div>
+      </div><!-- .container -->
     </nav><!-- #header-nav -->
 </header>
 
 <div id="main-content" class="container">
- <div class="row">
-     <div class="col-md-7">
-       <img src="images/bio1.jpg" alt="Picture of biologists">
-     </div>
-     <div id="login" class="col-md-5">
-        <p>Log In</p>
-        <form id="login_form" name="login" method="post" action="login.jsp" novalidate>
-          <div>
-            <label for="login_username" style="font-size:18px"><span class="required-mark">*</span>username</label>
-            <input type="text" id="login_username" class="log-input" name="userid">
-          </div>
-          <p></p>
-          <div>
-            <label for="login_password" style="font-size:18px"><span class="required-mark">*</span>password</label>
-            <input type="password" id="login_password" class="log-input" name="password">
-          </div>
-          <p></p>
-          <input type="submit" value="Submit">
-          <p><a href="register.html">Not a member? Join our network today!</a></p>
-        </form>
-      </div>
-   </div>
+
 </div>
-  
-<div id="div"></div>
+
+<div>   
+  <div id="div-profile">
+   <ul>
+        <img src="<%=s[5]%>"/ style="height:90px;width:120px">
+        <li>id:&nbsp<%=s[0]%></li>
+        <li>name:&nbsp<%=s[1]%></li>
+        <li>title:&nbsp<%=s[2]%></li>
+        <li>lab name:&nbsp<%=s[3]%></li>
+        <li>bbpoint:&nbsp<%=s[4]%></li>
+   </ul>
+  </div>
+</div>
 </body>
 </html>

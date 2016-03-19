@@ -2,13 +2,24 @@ package user;
 
 public class Comment {
 
-	public String mid;
-	public String name;
-	public String content;
-	public Comment(String mid,String name,String content)
+	private int cid;
+	private double score;
+	private String comment;
+	
+	public Comment(int cid, double score, String comment)
 	{
-	  	this.mid=mid;
-	  	this.name=name;
-	  	this.content=content;
+	  	this.cid=cid;
+	  	this.score=score;
+	  	this.comment=comment;
+	}
+	
+	public int getCid() {
+		return cid;
+	}
+	public double getScore() {
+		return score;
+	}
+	public String getComment() {
+		return comment;
 	}
 }
