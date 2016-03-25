@@ -1,6 +1,6 @@
 body {
   font-size: 16px;
-  color: #0000ff;
+  color: #000000;
   background-color: #ffffff;
   font-family: 'Oxygen', sans-serif;
 }
@@ -32,7 +32,6 @@ body {
   font-size: 15px;
 }
 #nav-list a {
-  color: #000000;
   text-align: center;
 }
 #nav-list a:hover {
@@ -82,7 +81,12 @@ body {
   text-align: center;
   margin: 30px 10px 30px 10px;
 }
-#search p {
+#chooseAttr form {
+  display: inline;
+  color: #000000;
+  font-size: 15px;
+}
+#chooseAttr p {
   font-size: 20px;
   color: #ff8000;
   text-align: center;
@@ -109,6 +113,11 @@ body {
 }
 #div-right{
 	float:left;
+}
+
+table, td {
+	border: 1px;
+	padding: 5px;
 }
 
 /* Footer */

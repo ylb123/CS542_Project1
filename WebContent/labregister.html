@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BioBay</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/default.css" rel="stylesheet" type="text/css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="jquery-2.2.0.js"></script> 
+
+<!-- 
+    <script type="text/javascript"> 
+      function create() { 
+        var tab = $("<table border='1'></table>"); 
+        for (var i = 1; i <= 3; i++) { 
+            var row = $("<tr></tr>"); 
+            for (var j = 1; j <= 4; j++) {  
+                row.append($("<td>" + i + "行" + j + "列" + "</td>")); 
+            } 
+            tab.append(row); 
+
+        } 
+        $("#div").append(tab); 
+      } 
+    </script>
+-->
+  </head>
+
+<body>
+  <body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <a href="main.html"><h1>BioBay</h1></a>
+          </div>
+        </div>
+        
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+             <li id="phone"><a href="#">Contact Us</a></li>
+             <li class="login"><a href="index.html"> Log In</a></li>
+             <li class="account"><a href="#"> My Account</a></li>
+             <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
+           </ul>
+        </div>
+        
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+          <ul id="info" class="nav navbar-nav navbar-right">
+            <li><a href="href/labs.html">Labs</a></li>
+            <li><a href="href/area.html">Research Area</a></li>
+            <li><a href="href/type.html">Reagent Type</a></li>
+            <li><a href="href/about.html">About BioBay</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+<div id="register" class="container">
+  <table width="100%">
+    <tr>
+      <td align="left" valign="top">
+        <h4>Lab Information</h4>
+        <table width="100%">
+          <tr>
+            <td align="left" valign="top">
+              <table width="100%" class="account">
+                <tr>
+                  <td width="100%" colspan="2"></td>
+                </tr>
+                <tr>
+                  <td width="100%" colspan="2"></td>
+                </tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Lab Name:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="labname" type="text" id="labname"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Institution:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="institution" type="text" id="institution"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Address:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="address" type="text" id="address"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Research Area:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="researcharea" type="text" id="researcharea"></td></tr>     
+              </table>
+            </td>
+          </tr>
+        </table>
+        <hr>
+        <h4>Lab Manager Information</h4>
+        <table width="100%">
+          <tr>
+            <td align="left" valign="top">
+              <table width="100%" class="account">
+                <tr>
+                  <td width="100%" colspan="2"></td>
+                </tr>
+                <tr>
+                  <td width="100%" colspan="2"></td>
+                </tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Username:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="username" type="text" id="username"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Password:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="password" type="password" id="password"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Confirm password:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="password" type="password" id="password"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*First Name:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="firstname" type="text" id="firstname"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Last Name:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="lastname" type="text" id="lastname"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*Title:</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="title" type="text" id="title"></td></tr>
+                  <tr><td width="35%" align="right" valign="middle"><span>*When did you join the lab?</span></td>
+                      <td width="65%" align="left" valign="middle"><input name="since" type="text" id="since"></td></tr>  
+              </table>
+            </td>
+          </tr>
+          <tr><td width="100%" align="middle"><input type="submit" value="Submit"></td></tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+  <footer class="panel-footer">
+    <div class="container">
+      <div class="row">
+        <section id="hours" class="col-sm-4">
+          <span>Contact Hours:</span><br>
+          Monday-Thursday: 9am - 5pm<br>
+          Sat: 9am - 12pm<br>
+          Sunday Closed
+          <hr class="visible-xs">
+        </section>
+        <section id="address" class="col-sm-4">
+          <span>Address:</span><br>
+          55 North Lake Ave<br>
+          Worcester, MA 01605
+          <p>* </p>
+          <hr class="visible-xs">
+        </section>
+        <section id="testimonials" class="col-sm-4">
+          <p>"Join in our network today and get extra bbpoints for reagent!"</p>
+          <p>""</p>
+        </section>
+      </div>
+      <div class="text-center">&copy; 2016 All Rights Reserved. BioBay is a registered trademark of BioBay, Inc.</div>
+   </div>
+  </footer>
+</body>
+</html>

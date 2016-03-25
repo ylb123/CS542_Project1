@@ -122,13 +122,9 @@
 
 <body>
   <header>
-    <nav id="header-nav" class="navbar navbar-default">
+    <nav id="header-nav" class="navbar navbar-default" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a href="main.html" class="pull-left visible-md visible-lg">
-            <div id="logo-img" alt="Logo image"></div>
-          </a>
-
           <div class="navbar-brand">
             <a href="main.html"><h1>BioBay</h1></a>
           </div>
@@ -136,51 +132,43 @@
         
         <div id="collapsable-nav" class="collapse navbar-collapse">
            <ul id="nav-list" class="nav navbar-nav navbar-right">
-             <li id="phone"><a href="tel:000-000-0000">000-000-0000</a></li>
-<<<<<<< HEAD
+             <li id="phone"><a href="#">Contact Us</a></li>
              <li class="login"><a href="index.html"> Log In</a></li>
-=======
-             <li class="login"><a href="#"> Log In</a></li>
->>>>>>> origin/master
              <li class="account"><a href="#"> My Account</a></li>
              <li class="shopcart"><a href="#"> Shopping Cart (0)</a></li>
-           </ul><!-- #nav-list -->
-        </div><!-- .collapse .navbar-collapse -->
+           </ul>
+        </div>
+        
         <div id="collapsable-nav" class="collapse navbar-collapse">
-          <ul id="menu" class="nav navbar-nav navbar-right">
-            <li><a href="main.html">Home</a></li>
-            <li><a href="profile.jsp">Profile</a></li>
-            <li><a href="href/mission.html">Our Mission</a></li>
-            <li><a href="href/resources.html">Resources</a></li>
-            <li><a href="href/about.html">About</a></li>
-            <li><a href="href/blog.html">Blog</a></li>
+          <ul id="info" class="nav navbar-nav navbar-right">
+            <li><a href="href/labs.html">Labs</a></li>
+            <li><a href="href/area.html">Research Area</a></li>
+            <li><a href="href/type.html">Reagent Type</a></li>
+            <li><a href="href/about.html">About BioBay</a></li>
           </ul>
         </div>
-      </div><!-- .container -->
-    </nav><!-- #header-nav -->
+      </div>
+    </nav>
 </header>
 
 <div id="main-content" class="container">
-
-</div>
-
-<div>
-  <div id="chooseAttr">
-    <ul>
-      <li>   
+ <div class="row">
+    <div class="col-xs-12 col-sm-7">
+       <img src="images/bio1.jpg" alt="Picture of biologists">
+    </div>
+    
+  <div id="chooseAttr" class="col-xs-12 col-sm-5">
+    <p>Search Reagents</p>
+    <form id="search_form" name="form">
       <select name="choose" id="choose" style="font-size:18px">   
-      <option value="1">lab name</option>   
-      <option value="2">reagent name</option> 
-      <option value="3">average score(greater)</option>             
-      </select>
-      <li>
-      <li>
-      <input type="text" id="attribute" style="height:22px">
-      </li>
-      <li>  
-    <input type="button" onclick="init()" value="search" style="margin-top:10px;height:22px"/>
-      </li>
-    </ul>
+         <option value="1">lab name</option>   
+         <option value="2">reagent name</option> 
+         <option value="3">average score(greater)</option>             
+      </select><br>
+      <p></p>
+      <input type="text" id="attribute"> 
+      <input type="button" onclick="init()" value="search" style="margin-top:10px;height:22px"/>
+   </form>
   </div>   
   <div>
       <div id="div-right">
@@ -207,5 +195,31 @@
       </div>
   </div>
 </div>
+</div>
+
+<footer class="panel-footer">
+    <div class="container">
+      <div class="row">
+        <section id="hours" class="col-sm-4">
+          <span>Contact Hours:</span><br>
+          Monday-Friday: 8am - 6pm<br>
+          Saturday-Sunday: 9am - 5pm<br>
+          <hr class="visible-xs">
+        </section>
+        <section id="address" class="col-sm-4">
+          <span>Address:</span><br>
+          55 North Lake Ave<br>
+          Worcester, MA 01605
+          <p>* </p>
+          <hr class="visible-xs">
+        </section>
+        <section id="other" class="col-sm-4">
+          <p>"Join in our network today and get extra bbpoints for reagent!"</p>
+          <p>""</p>
+        </section>
+      </div>
+      <div class="text-center">&copy; 2016 All Rights Reserved. BioBay is a registered trademark of BioBay, Inc.</div>
+    </div>
+  </footer>
 </body>
 </html>
