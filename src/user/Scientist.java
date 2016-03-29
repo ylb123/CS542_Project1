@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import sql.Database4Sql;
 import conf.Conf;
@@ -13,7 +15,6 @@ public class Scientist {
 			 
 	static String sqlSelectScientist="select uid,password,name,title,lid from Scientist where uid=? and password =?";
 	static String sqlsearchLab="select lid,name,affiliation,bbpoint from Lab where name=?";
-<<<<<<< HEAD
 	static String sqlsearchProfile="select uid,s.name,title,l.name,bbpoint,image from Scientist s,Lab l "+
 			                                                          "where ?=l.lid";
 	static String sqlsearchReagent="select name,lid,source,type,expDate,scoreNum,averageScore,sqty,askp,image "
@@ -25,16 +26,9 @@ public class Scientist {
 	static String sqlupdateQuantity="update Reagent set sqty=? where lid=? and name=?";
 	static String sqlsearchPrice="select askp from Reagent where name=? and lid=?";
 	static String sqlsearchQuantity="select sqty from Reagent where name=? and lid=?";
+	static String sqlsearchRequests="select rname,uid,lid,rqty,rqdate,sname from Requests where lid=?";
 	
 	
-=======
-	static String sqlsearchProfile="select uid,s.name,title,l.name,bbpoint from Scientist s,Lab l "+
-			                                                          "where s.lid=l.lid";
-	static String sqlsearchReagent="select name,lid,source,type,expDate,scoreNum,averageScore,sqty,askp "
-			                                           +"from Reagent where name=?";
-	static String sqlsearchReagent2="select name,lid,source,type,expDate,scoreNum,averageScore,sqty,askp "
-            +"from Reagent where averageScore>?";
->>>>>>> origin/master
 	/*
 	static String sqlInsertScientist="insert into Scientist(uid,password,sname ) values(?,?,?)";
 	static String sqlDeleteScientist="delete from scientist where uid =?";
@@ -96,11 +90,7 @@ public class Scientist {
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			if ( rs !=null && rs.next()) {
 				lab=new Lab(rs.getString(1).trim(),rs.getString(2),rs.getString(3),
-<<<<<<< HEAD
 						rs.getInt(4));
-=======
-						Integer.valueOf(rs.getString(4)));
->>>>>>> origin/master
 			}
 			rs.close();		
 		} catch (SQLException e) {
@@ -113,18 +103,11 @@ public class Scientist {
 		Database4Sql dSql = null;
 		PreparedStatement pStmt = null;
 		String sql=sqlsearchProfile;
-<<<<<<< HEAD
 		String[] s=new String[6];
 		try {
 			dSql=new Database4Sql();
 			pStmt=dSql.getPreparedStatement(sql);
 			pStmt.setString(1, this.lid);
-=======
-		String[] s=new String[5];
-		try {
-			dSql=new Database4Sql();
-			pStmt=dSql.getPreparedStatement(sql);
->>>>>>> origin/master
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			if ( rs !=null && rs.next()) {
 				s[0]=rs.getString(1).trim();
@@ -132,10 +115,7 @@ public class Scientist {
 				s[2]=rs.getString(3);
 				s[3]=rs.getString(4);
 				s[4]=rs.getString(5);
-<<<<<<< HEAD
 				s[5]=rs.getString(6);
-=======
->>>>>>> origin/master
 			}
 			rs.close();		
 		} catch (SQLException e) {
@@ -157,17 +137,10 @@ public class Scientist {
 			pStmt.setString(1, name);
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			while( rs !=null && rs.next()) {
-<<<<<<< HEAD
 				reagent=new Reagent(rs.getString(1).trim(),rs.getString(2)
 						,rs.getString(3),rs.getString(4),rs.getString(5)
 						,rs.getInt(6),rs.getDouble(7)
 						,rs.getDouble(9),rs.getString(10));
-=======
-				reagent=new Reagent(rs.getString(1).trim(),Integer.valueOf(rs.getString(2))
-						,rs.getString(3),rs.getString(4),rs.getString(5)
-						,Integer.valueOf(rs.getString(6)),Double.valueOf(rs.getString(7))
-						,Integer.valueOf(rs.getString(9)));
->>>>>>> origin/master
 				ret[i]=reagent;
 				i++;
 			}
@@ -179,11 +152,7 @@ public class Scientist {
 	}
 	
 	public Reagent[] searchReagent(double score){
-<<<<<<< HEAD
 
-=======
-		System.out.println(score);
->>>>>>> origin/master
 		Reagent[] ret=new Reagent[3];
 		Reagent reagent=null;
 		Database4Sql dSql = null;
@@ -196,17 +165,10 @@ public class Scientist {
 			pStmt.setDouble(1, score);
 			ResultSet rs=dSql.queryPrepare(pStmt);
 			while( rs !=null && rs.next()) {
-<<<<<<< HEAD
 				reagent=new Reagent(rs.getString(1).trim(),rs.getString(2)
 						,rs.getString(3),rs.getString(4),rs.getString(5)
 						,rs.getInt(6),rs.getDouble(7)
 						,rs.getDouble(9),rs.getString(10));
-=======
-				reagent=new Reagent(rs.getString(1).trim(),Integer.valueOf(rs.getString(2))
-						,rs.getString(3),rs.getString(4),rs.getString(5)
-						,Integer.valueOf(rs.getString(6)),Double.valueOf(rs.getString(7))
-						,Integer.valueOf(rs.getString(9)));
->>>>>>> origin/master
 				ret[i]=reagent;
 				i++;
 			}
@@ -217,7 +179,7 @@ public class Scientist {
 		return ret;	
 	}
 	
-	public boolean requestReagent(String rname,String uid,String lid,int quantity,Date date,String sname){
+	public boolean requestReagent(String rname,String lid,int quantity,Timestamp date,String uid,String sname){
 		
 		Database4Sql dSql = null;
 		PreparedStatement pStmt = null;
@@ -227,10 +189,10 @@ public class Scientist {
 			dSql=new Database4Sql();
 			pStmt=dSql.getPreparedStatement(sql);
 			pStmt.setString(1, rname);
-			pStmt.setString(2, uid);
-			pStmt.setString(3, lid);
-			pStmt.setInt(4, quantity);
-			pStmt.setDate(5, date);
+			pStmt.setString(2, lid);
+			pStmt.setInt(3, quantity);
+			pStmt.setTimestamp(4, date);
+			pStmt.setString(5, uid);
 			pStmt.setString(6, sname);
 			dSql.executePrepare(pStmt);		
 		} catch (SQLException e) {
@@ -311,6 +273,31 @@ public class Scientist {
 		}
 		success=true;
 		return success;	
+	}
+	
+	public ArrayList<Requests> searchRequests(String lid)
+	{
+		ArrayList<Requests> a=new ArrayList<Requests>();
+		Requests request=null;
+		Database4Sql dSql = null;
+		PreparedStatement pStmt = null;
+		String sql=sqlsearchRequests;
+		try {
+			dSql=new Database4Sql();
+			pStmt=dSql.getPreparedStatement(sql);
+			pStmt.setString(1, lid);
+			ResultSet rs=dSql.queryPrepare(pStmt);
+			while( rs !=null && rs.next()) {
+				request=new Requests(rs.getString(1),rs.getString(2)
+						,rs.getString(3),rs.getInt(4),rs.getTimestamp(5)
+						,rs.getString(6));
+				a.add(request);
+			}
+			rs.close();		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return a;	
 	}
 	
 	/*public Comment[] viewComment(String mid){
