@@ -16,10 +16,7 @@
    if(ret[i]==null)
 	 break;
    out.print("<div style='float:left;margin-left:30px;margin-top:20px'>"+
-<<<<<<< HEAD
 	           "<img src=\""+ret[i].getImage()+"\" style=\"height:60px;width:100px\"/><br/>"+
-=======
->>>>>>> origin/master
 		       "Name:"+ret[i].getName()+"<br/>"+
                "Lid:"+ret[i].getLid()+"<br/>"+
 		       "Source:"+ret[i].getSource()+"<br/>"+
@@ -29,10 +26,6 @@
 		       "point:"+ret[i].getAskp()+
                "</div>"
 		      );   
-<<<<<<< HEAD
    System.out.println(ret[i].getImage());
-=======
-   //System.out.println("here");
->>>>>>> origin/master
    }
 %>
